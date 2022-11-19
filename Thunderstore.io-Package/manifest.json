@@ -1,8 +1,8 @@
 {
-    "name": "Stacklands Idle Villager",
-    "version_number": "1.0.2",
+    "name": "Stacklands_Idle_Villager",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/NBKRedSpy/StacklandsIdleVillager",
-    "description": "Automatically Loads the last save unless the shift key is pressed.",
+    "description": "Indicates a Villager is idle with a red border.",
 	"dependencies": [
 		"BepInEx-BepInExPack_Stacklands-5.4.2100"
 	]
