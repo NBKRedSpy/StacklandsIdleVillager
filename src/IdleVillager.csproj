@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>IdleVillager</AssemblyName>
+    <Description>My first plugin</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Steam\steamapps\common\Stacklands\</GameDir>
+	<BepInExDeployDir Condition="'$(BepInExDeployDirCondition)' == ''">%appdata%\r2modmanPlus-local\Stacklands\profiles\Default\BepInEx\plugins</BepInExDeployDir>
+    <RootNamespace>IdleVillager</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="GameScripts">
+      <HintPath>$(GameDir)Stacklands_Data\Managed\GameScripts.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapesRuntime">
+      <HintPath>$(GameDir)Stacklands_Data\Managed\ShapesRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDir)Stacklands_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDir)Stacklands_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if NOT &quot;$(BepInExDeployDir)&quot; == &quot;&quot; copy /y &quot;$(ProjectDir)$(OutDir)$(AssemblyName).dll&quot; &quot;$(BepInExDeployDir)&quot;" />
+  </Target>
+</Project>
