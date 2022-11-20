@@ -1,8 +1,8 @@
 {
     "name": "Stacklands_Idle_Villager",
-    "version_number": "1.1.1",
+    "version_number": "1.2.0",
     "website_url": "https://github.com/NBKRedSpy/StacklandsIdleVillager",
-    "description": "Puts a red border around an idle garden or villager.",
+    "description": "Adds a red border around an idle food producer or villager.",
 	"dependencies": [
 		"BepInEx-BepInExPack_Stacklands-5.4.2100"
 	]

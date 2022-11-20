@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>IdleVillager</AssemblyName>
     <Description>Stacklands Idle Villager</Description>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>

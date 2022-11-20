@@ -43,7 +43,8 @@ namespace IdleVillager
         /// <returns></returns>
         private static bool IsFarmIdle(GameCard gameCard)
         {
-            return Plugin.HighlightFarms.Value && gameCard.CardData is Garden 
+            return Plugin.HighlightFarms.Value && 
+                (gameCard.CardData is Garden || gameCard.CardData is FishTrap)
                 && gameCard.Parent == null && gameCard.Child == null;
         }
     }

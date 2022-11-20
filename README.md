@@ -1,6 +1,6 @@
 # Stacklands Idle Villager
 
-Creates an animated red border around villagers and food producers that are idle.
+Adds a red border around an idle food producer or villager.
 
 ![Idle Villager](Thunderstore.io-Package/icon.png)
 
@@ -14,6 +14,9 @@ Creates an animated red border around villagers and food producers that are idle
 
 
 # Change Log
+
+## 1.2.0
+Added Fishing Spot as a food producer.
 
 ## 1.1.1
 Added idle highlight for food producers.
