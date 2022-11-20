@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BepInEx.Configuration;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,14 +11,40 @@ namespace IdleVillager
     public static class GameCardIdle_Patch
     {
 
+
         public static void Postfix(GameCard __instance)
         {
-            if (__instance.CardData is Villager && __instance.Parent == null && __instance.Child == null && ((Combatable)__instance.CardData).MyConflict == null)
+
+
+            //Check for villager not in combat or farm.  Then check if there is a parent or child card attached.
+            if (IsVillagerIdle(__instance) || IsFarmIdle(__instance)) 
             {
                 __instance.HighlightRectangle.enabled = true;
                 __instance.HighlightRectangle.Color = UnityEngine.Color.red;
             }
+        }
 
+        /// <summary>
+        /// Returns true if the Highlight Villager option is true and the villager is idle.
+        /// </summary>
+        /// <param name="gameCard"></param>
+        /// <returns></returns>
+        private static bool IsVillagerIdle(GameCard gameCard)
+        {
+            return Plugin.HighlightVillagers.Value && gameCard.CardData is Villager
+                && ((Combatable)gameCard.CardData).MyConflict == null
+                && gameCard.Parent == null && gameCard.Child == null;
+        }
+
+        /// <summary>
+        /// Returns true if the Highlight Garden option is true and the farm is idle.
+        /// </summary>
+        /// <param name="gameCard"></param>
+        /// <returns></returns>
+        private static bool IsFarmIdle(GameCard gameCard)
+        {
+            return Plugin.HighlightFarms.Value && gameCard.CardData is Garden 
+                && gameCard.Parent == null && gameCard.Child == null;
         }
     }
 }

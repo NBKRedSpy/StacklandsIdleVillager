@@ -1,2 +1,3 @@
-**.zip
-**.dll
+*.zip
+*.dll
+/Thunderstore.io-Package/README.md
