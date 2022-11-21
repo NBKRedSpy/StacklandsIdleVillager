@@ -1,6 +1,6 @@
 {
     "name": "Stacklands_Idle_Villager",
-    "version_number": "1.2.0",
+    "version_number": "1.3.0",
     "website_url": "https://github.com/NBKRedSpy/StacklandsIdleVillager",
     "description": "Adds a red border around an idle food producer or villager.",
 	"dependencies": [

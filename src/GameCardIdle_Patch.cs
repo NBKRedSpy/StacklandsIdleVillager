@@ -15,6 +15,10 @@ namespace IdleVillager
         public static void Postfix(GameCard __instance)
         {
 
+            if(__instance.IsDemoCard)
+            {
+                return;
+            }
 
             //Check for villager not in combat or farm.  Then check if there is a parent or child card attached.
             if (IsVillagerIdle(__instance) || IsFarmIdle(__instance)) 
@@ -43,9 +47,38 @@ namespace IdleVillager
         /// <returns></returns>
         private static bool IsFarmIdle(GameCard gameCard)
         {
-            return Plugin.HighlightFarms.Value && 
-                (gameCard.CardData is Garden || gameCard.CardData is FishTrap)
-                && gameCard.Parent == null && gameCard.Child == null;
+            FoodProducers highlight = Plugin.HighlightFoodProducers.Value;
+
+
+            bool checkIsIdle = false;
+
+            if (gameCard.CardData is Garden && ((highlight & FoodProducers.Garden) == FoodProducers.Garden))
+            {
+                checkIsIdle = true;
+            }
+
+            if (gameCard.CardData is FishingSpot && ((highlight & FoodProducers.FishingSpot) == FoodProducers.FishingSpot))
+            {
+                checkIsIdle = true;
+            }
+
+            if (gameCard.CardData is FishTrap  && ((highlight & FoodProducers.FishingTrap) == FoodProducers.FishingTrap))
+            {
+                checkIsIdle = true;
+            }
+
+            if (gameCard.CardData is Greenhouse && ((highlight & FoodProducers.Greenhouse) == FoodProducers.Greenhouse))
+            {
+                checkIsIdle = true;
+            }
+
+            if(checkIsIdle)
+            {
+                return gameCard.Parent == null && gameCard.Child == null;
+            }
+
+            return false;
+
         }
     }
 }
