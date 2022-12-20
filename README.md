@@ -9,7 +9,7 @@ Adds a red border around an idle food producer or villager.
 |Option|Default|Description|
 |--|--|--|
 |HighlightVillagers|true|Highlights idle villagers|
-|HighlightFoodProducers|Garden, FishingSpot, FishingTrap, Greenhouse|The food producers to highlight when idle.  Set to None to not highlight food producers.
+|HighlightFoodProducers|Garden, FishingSpot, FishingTrap, Greenhouse|The food producers to highlight when idle.  Set to None to not highlight food producers.|
 
 
 |Food Producer Value|Note|
