@@ -1,42 +1,22 @@
-﻿using BepInEx;
-using BepInEx.Configuration;
-using System;
+﻿using System.IO;
+using UnityEngine;
+using UnityEngineInternal;
 
 namespace IdleVillager;
 
-
-[Flags]
-public enum FoodProducers
-{
-    None = 0,
-    Garden = 0x1,
-    FishingSpot = 0x2,
-    FishingTrap = 0x4,
-    Greenhouse  = 0x8,
-}
-
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-public class Plugin : BaseUnityPlugin
+public class PlugIn : Mod
 {
 
-    public static ConfigEntry<bool> HighlightVillagers;
-    public static ConfigEntry<FoodProducers> HighlightFoodProducers;
+    internal static ModConfig ModConfig { get; private set; } = null!;
 
-
-    private void Awake()
+    internal static ModLogger ModLogger = null!;
+    public override void Ready()
     {
-
-        HighlightVillagers = Config.Bind("General", "HighlightVillagers", true, "Highlight idle villagers.");
-
-        HighlightFoodProducers = Config.Bind("General", "HighlightFoodProducers", 
-            FoodProducers.Garden | 
-            FoodProducers.FishingSpot | 
-            FoodProducers.FishingTrap | 
-            FoodProducers.Greenhouse, 
-            "The food producers to highlight when idle.  Set to None to not highlight food producers.");
-
-
-        HarmonyLib.Harmony harmony = new HarmonyLib.Harmony(MyPluginInfo.PLUGIN_GUID);
-        harmony.PatchAll();
+		ModLogger = Logger;
+        ModConfig = new ModConfig(Config);
+        
+        Harmony.PatchAll();
     }
+
+
 }

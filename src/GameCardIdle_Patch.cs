@@ -1,5 +1,4 @@
-﻿using BepInEx.Configuration;
-using HarmonyLib;
+﻿using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +7,7 @@ namespace IdleVillager
 {
 
     [HarmonyPatch(typeof(GameCard), "Update")]
-    public static class GameCardIdle_Patch
+    internal static class GameCardIdle_Patch
     {
 
 
@@ -35,7 +34,7 @@ namespace IdleVillager
         /// <returns></returns>
         private static bool IsVillagerIdle(GameCard gameCard)
         {
-            return Plugin.HighlightVillagers.Value && gameCard.CardData is Villager
+            return PlugIn.ModConfig.HighlightVillagers && gameCard.CardData is Villager
                 && ((Combatable)gameCard.CardData).MyConflict == null
                 && gameCard.Parent == null && gameCard.Child == null;
         }
@@ -47,27 +46,27 @@ namespace IdleVillager
         /// <returns></returns>
         private static bool IsFarmIdle(GameCard gameCard)
         {
-            FoodProducers highlight = Plugin.HighlightFoodProducers.Value;
+            FoodProducers highlight = PlugIn.ModConfig.HighlightFoodProducers.Value;
 
 
             bool checkIsIdle = false;
 
-            if (gameCard.CardData is Garden && ((highlight & FoodProducers.Garden) == FoodProducers.Garden))
+            if (gameCard.CardData is Garden && ((highlight & FoodProducers.FarmsAndGardens) != 0))
             {
                 checkIsIdle = true;
             }
 
-            if (gameCard.CardData is FishingSpot && ((highlight & FoodProducers.FishingSpot) == FoodProducers.FishingSpot))
+            if (gameCard.CardData is FishingSpot && ((highlight & FoodProducers.FishingSpot) != 0))
             {
                 checkIsIdle = true;
             }
 
-            if (gameCard.CardData is FishTrap  && ((highlight & FoodProducers.FishingTrap) == FoodProducers.FishingTrap))
+            if (gameCard.CardData is FishTrap  && ((highlight & FoodProducers.FishingTrap) != 0))
             {
                 checkIsIdle = true;
             }
 
-            if (gameCard.CardData is Greenhouse && ((highlight & FoodProducers.Greenhouse) == FoodProducers.Greenhouse))
+            if (gameCard.CardData is Greenhouse && ((highlight & FoodProducers.Greenhouse) != 0))
             {
                 checkIsIdle = true;
             }
