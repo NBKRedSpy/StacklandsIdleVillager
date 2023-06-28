@@ -1,7 +1,7 @@
 {
     "name": "Show Idle Villager",
     "id": "IdleVillager",
-    "version_number": "2.0.0-beta+002",
+    "version": "2.0.0-beta+003",
     "website_url": "https://github.com/NBKRedSpy/StacklandsIdleVillager",
     "description": "Adds a red border around an idle food producer or villager.",
     "notes": "This is a beta version.  Beta issue:  When changing the mod's options, click the back button instead of using the escape key or the configuration will be out of sync.",
