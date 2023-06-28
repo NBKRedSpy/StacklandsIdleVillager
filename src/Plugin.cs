@@ -18,5 +18,10 @@ public class PlugIn : Mod
         Harmony.PatchAll();
     }
 
+	private void OnDestroy()
+	{
+		Harmony.UnpatchSelf();
+	}
+
 
 }
