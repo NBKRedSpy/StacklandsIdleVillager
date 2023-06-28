@@ -4,6 +4,9 @@ Adds a red border around idle food producers or villagers.
 
 ![Idle Villager](media/icon.png)
 
+# Note
+This is a beta version.  Beta issue:  When changing the mod's options, click the back button instead of using the escape key or the configuration will be out of sync.
+
 # Settings
 The mod options includes settings to enable or disable the highlighting of the following idle cards:
 
