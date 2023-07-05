@@ -14,13 +14,13 @@ namespace IdleVillager
     internal class EnumConfigEntry<T> where T : System.Enum
     {
 
-		private ConfigEntry ConfigEntry { get; set; }
+		private ConfigEntry<bool> ConfigEntry { get; set; }
 
         public T EnumValue { get; set; }
 
 		public bool Enabled
         {
-            get => ConfigEntry.GetBool();
+            get => ConfigEntry.Value;
             set => ConfigEntry.Value = value;
         }
 

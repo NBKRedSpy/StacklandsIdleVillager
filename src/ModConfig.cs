@@ -12,7 +12,7 @@ namespace IdleVillager
 
 		public bool HighlightVillagers { get; private set; }
 
-		private ConfigEntry HighlightVillagersConfig { get; set; }
+		private ConfigEntry<bool> HighlightVillagersConfig { get; set; }
 
 		public FoodProducersConfig HighlightFoodProducers { get; private set; }
 		
@@ -34,7 +34,7 @@ namespace IdleVillager
 		public void OnSave()
 		{
 			HighlightFoodProducers.OnSave();
-			HighlightVillagers = HighlightVillagersConfig.GetBool();
+			HighlightVillagers = HighlightVillagersConfig.Value;
 		}
 
 	}

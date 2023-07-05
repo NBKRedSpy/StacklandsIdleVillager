@@ -14,14 +14,9 @@ public class PlugIn : Mod
     {
 		ModLogger = Logger;
         ModConfig = new ModConfig(Config);
+        Config.OnSave += ModConfig.OnSave;
         
         Harmony.PatchAll();
     }
-
-	private void OnDestroy()
-	{
-		Harmony.UnpatchSelf();
-	}
-
 
 }
