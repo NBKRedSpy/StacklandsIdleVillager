@@ -48,9 +48,12 @@
     <None Update="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="workshop.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)manifest.json&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(ProjectDir)..\media\icon.png&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+    <Exec Command="if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)manifest.json&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)workshop.txt&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(ProjectDir)..\media\icon.png&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
   </Target>
 </Project>
