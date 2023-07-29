@@ -34,7 +34,7 @@ namespace IdleVillager
         /// <returns></returns>
         private static bool IsVillagerIdle(GameCard gameCard)
         {
-            return PlugIn.ModConfig.HighlightVillagers && gameCard.CardData is Villager
+            return PlugIn.ModConfig.HighlightVillagers && gameCard.CardData is BaseVillager
                 && ((Combatable)gameCard.CardData).MyConflict == null
                 && gameCard.Parent == null && gameCard.Child == null;
         }

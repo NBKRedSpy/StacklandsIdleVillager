@@ -1,22 +1,18 @@
-[h1 id="stacklands-idle-villager"]Stacklands Idle Villager[/h1]
+[h1]Stacklands Idle Villager[/h1]
+
 Adds a red border around idle food producers or villagers.
 
-[h1]Note[/h1]
-This is a beta version.  
-Beta issue:  When changing the mod's options, click the back button instead of using the escape key or the configuration will be out of sync.
+[h1]Settings[/h1]
 
-[h1 id="settings"]Settings[/h1]
 The mod options includes settings to enable or disable the highlighting of the following idle cards:
-* Villagers
-* Farms and Gardens
-* Fishing Spots
-* Fishing Traps
-* Greenhouses
+[list]
+[*]Villagers
+[*]Farms and Gardens
+[*]Fishing Spots
+[*]Fishing Traps
+[*]Greenhouses
+[/list]
 
-[h1 id="change-log"]Change Log[/h1]
+[h1]Source[/h1]
 
-[h2 id="2-0-0"]2.0.0[/h2]
-Support for Steam Worshop.
-
-[h1 id="source"]Source[/h1]
 Source can be found at https://github.com/NBKRedSpy/StacklandsIdleVillager

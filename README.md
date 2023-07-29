@@ -18,8 +18,11 @@ The mod options includes settings to enable or disable the highlighting of the f
 
 # Change Log
 
+## 2.1.0
+Fixes Villagers from DLC not being included.  Young/old, etc.
+
 ## 2.0.0
-Support for Steam Worshop.
+Support for Steam Workshop.
 
 # Source
 Source can be found at https://github.com/NBKRedSpy/StacklandsIdleVillager
