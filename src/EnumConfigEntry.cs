@@ -34,8 +34,12 @@ namespace IdleVillager
         /// <param name="defaultValue"></param>
 		public EnumConfigEntry(ConfigFile config, T value, string propertyName, bool defaultValue)
         {
-			ConfigEntry = config.GetEntry<bool>(propertyName, defaultValue);
-			EnumValue = value;
+            ConfigEntry = config.GetEntry<bool>(propertyName, defaultValue, new ConfigUI() 
+            {
+                NameTerm = string.Join("_", propertyName,"Name"),
+            });
+
+            EnumValue = value;
 		}
 
 		/// <summary>

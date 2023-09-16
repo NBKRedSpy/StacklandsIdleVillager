@@ -22,7 +22,11 @@ namespace IdleVillager
         {
 			Config = config;
 
-			HighlightVillagersConfig = Config.GetEntry<bool>("Highlight Villagers", true);
+			HighlightVillagersConfig = Config.GetEntry<bool>("Highlight Villagers", true, new ConfigUI()
+			{
+				NameTerm = "Highlight Villagers_Name"
+			});
+			
 			HighlightFoodProducers = new FoodProducersConfig(this.Config);
 
 			OnSave();

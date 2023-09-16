@@ -30,8 +30,9 @@ namespace IdleVillager
 			highlights.Add(new EnumConfigEntry<FoodProducers>(config, FoodProducers.FishingSpot, "Fishing Spots", true));
 			highlights.Add(new EnumConfigEntry<FoodProducers>(config, FoodProducers.FishingTrap, "Fishing Traps", true));
 			highlights.Add(new EnumConfigEntry<FoodProducers>(config, FoodProducers.Greenhouse, "Greenhouses", true));
+            highlights.Add(new EnumConfigEntry<FoodProducers>(config, FoodProducers.Poop, "Poop", true));
 
-			FoodProducersEnumEntries = highlights;
+            FoodProducersEnumEntries = highlights;
 			OnSave();
 		}
 

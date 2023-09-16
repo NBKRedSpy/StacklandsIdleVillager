@@ -48,30 +48,15 @@ namespace IdleVillager
         {
             FoodProducers highlight = PlugIn.ModConfig.HighlightFoodProducers.Value;
 
-
             bool checkIsIdle = false;
 
-            if (gameCard.CardData is Garden && ((highlight & FoodProducers.FarmsAndGardens) != 0))
-            {
-                checkIsIdle = true;
-            }
+            if (gameCard.CardData is Poop && ((highlight & FoodProducers.Poop) != 0)) checkIsIdle = true;
+            else if (gameCard.CardData is Garden && ((highlight & FoodProducers.FarmsAndGardens) != 0)) checkIsIdle = true;
+            else if (gameCard.CardData is FishingSpot && ((highlight & FoodProducers.FishingSpot) != 0)) checkIsIdle = true;
+            else if (gameCard.CardData is FishTrap  && ((highlight & FoodProducers.FishingTrap) != 0)) checkIsIdle = true;
+            else if (gameCard.CardData is Greenhouse && ((highlight & FoodProducers.Greenhouse) != 0)) checkIsIdle = true;
 
-            if (gameCard.CardData is FishingSpot && ((highlight & FoodProducers.FishingSpot) != 0))
-            {
-                checkIsIdle = true;
-            }
-
-            if (gameCard.CardData is FishTrap  && ((highlight & FoodProducers.FishingTrap) != 0))
-            {
-                checkIsIdle = true;
-            }
-
-            if (gameCard.CardData is Greenhouse && ((highlight & FoodProducers.Greenhouse) != 0))
-            {
-                checkIsIdle = true;
-            }
-
-            if(checkIsIdle)
+            if (checkIsIdle)
             {
                 return gameCard.Parent == null && gameCard.Child == null;
             }

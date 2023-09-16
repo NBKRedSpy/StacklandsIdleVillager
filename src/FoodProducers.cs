@@ -10,4 +10,6 @@ internal enum FoodProducers
     FishingSpot = 0x2,
     FishingTrap = 0x4,
     Greenhouse  = 0x8,
+    Poop = 0x10,
 }
+
