@@ -16,6 +16,9 @@ The mod options includes settings to enable or disable the highlighting of the f
 
 # Change Log
 
+## 2.2.1
+* Fixes issue where the mod "Stack to Bottom" would cause the borders to be white instead of red.  Thank you to Steam user Big Sword for reporting this.
+
 ## 2.2.0
 * Added Poop (Thank you Steam user DASH666 for reporting)
 * Added localization

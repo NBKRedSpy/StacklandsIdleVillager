@@ -24,6 +24,8 @@ namespace IdleVillager
             {
                 __instance.HighlightRectangle.enabled = true;
                 __instance.HighlightRectangle.Color = UnityEngine.Color.red;
+                __instance.HighlightActive = true;
+
             }
         }
 
