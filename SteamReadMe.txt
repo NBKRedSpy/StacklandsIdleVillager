@@ -17,6 +17,11 @@ The mod options includes settings to enable or disable the highlighting of the f
 
 [h1]Change Log[/h1]
 
+[h2]2.2.2[/h2]
+[list]
+[*]Compatibility for 2000 DLC
+[/list]
+
 [h2]2.2.1[/h2]
 [list]
 [*]Fixes issue where the mod "Stack to Bottom" would cause the borders to be white instead of red.  Thank you to Steam user Big Sword for reporting this.

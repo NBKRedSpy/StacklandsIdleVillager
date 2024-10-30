@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>IdleVillager</AssemblyName>
     <Description>Stacklands Idle Villager</Description>
-    <Version>2.2.1</Version>
+    <Version>2.2.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -12,7 +12,7 @@
       https://nuget.bepinex.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <GameDir Condition="'$(GameDir)' == ''">C:\Steam\steamapps\common\Stacklands\</GameDir>
-	<ModDeployDir Condition="'$(ModDeployDir)' == ''">%LocalAppData%Low\sokpop\Stacklands\Mods</ModDeployDir>
+	<ModDeployDir Condition="'$(ModDeployDir)' == ''">D:\Games\Steam\steamapps\workshop\content\1948280\2995639602</ModDeployDir>
     <RootNamespace>IdleVillager</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -57,6 +57,6 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)manifest.json&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)workshop.txt&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(TargetDir)localization.tsv&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /i /y &quot;$(ProjectDir)..\media\icon.png&quot; &quot;$(ModDeployDir)\$(TargetName)\&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+    <Exec Command="if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /f /i /y &quot;$(TargetDir)$(TargetName).*&quot; &quot;$(ModDeployDir)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /f /i /y &quot;$(TargetDir)manifest.json&quot; &quot;$(ModDeployDir)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /f /i /y &quot;$(TargetDir)workshop.txt&quot; &quot;$(ModDeployDir)\&quot;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /f /i /y &quot;$(TargetDir)localization.tsv&quot; &quot;$(ModDeployDir)&quot;&#xD;&#xA;&#xD;&#xA;if NOT &quot;$(ModDeployDir)&quot; == &quot;&quot; xcopy /f /i /y &quot;$(ProjectDir)..\media\icon.png&quot; &quot;$(ModDeployDir)\&quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
   </Target>
 </Project>

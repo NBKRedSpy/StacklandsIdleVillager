@@ -15,6 +15,8 @@ The mod options includes settings to enable or disable the highlighting of the f
 * Poop
 
 # Change Log
+## 2.2.2
+* Compatibility for 2000 DLC
 
 ## 2.2.1
 * Fixes issue where the mod "Stack to Bottom" would cause the borders to be white instead of red.  Thank you to Steam user Big Sword for reporting this.
